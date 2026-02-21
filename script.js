@@ -1,4 +1,4 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxhIx64rIYH_LA4y6sZ6ZY1lSMXof3A-K07qoL4mJdVqWp9yOndN5Tf6lhtips_LWxs6w/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxkfw7HkCXu4fN3s0NnOIh-1KUAeSFJhIOy4PgSV3qqrWlrYccRBLKbNcxo4IScJs2y/exec';
 const form = document.getElementById('internForm');
 const btn = document.getElementById('submitBtn');
 
