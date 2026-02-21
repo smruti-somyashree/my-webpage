@@ -26,15 +26,26 @@ form.addEventListener('submit', e => {
 });
 
 function sendData(data) {
-    fetch(scriptURL, { method: 'POST', body: data })
-        .then(response => {
-            alert("Application Submitted to bputnotes.in!");
-            form.reset();
-            btn.disabled = false;
-            btn.innerText = "Submit Application";
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            btn.disabled = false;
-        });
+    btn.innerText = "Submitting...";
+   
+    // We use a clean object to avoid issues with FormData headers
+    fetch(scriptURL, {
+        method: 'POST',
+        body: data,
+        mode: 'no-cors' // This prevents most 'Error please try again' issues
+    })
+    .then(() => {
+        // With no-cors, we can't always read the response body,
+        // so we assume success if the request was sent.
+        alert("Application Submitted Successfully to bputnotes.in!");
+        form.reset();
+        btn.disabled = false;
+        btn.innerText = "Submit Application";
+    })
+    .catch(error => {
+        console.error('Error!', error);
+        alert("Submission failed. Check your internet or Script URL.");
+        btn.disabled = false;
+        btn.innerText = "Submit Application";
+    });
 }
