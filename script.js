@@ -1,4 +1,4 @@
-const scriptURL = 'https://smruti-somyashree.github.io/my-webpage/';
+const scriptURL = 'https://script.google.com/a/macros/gcekjr.ac.in/s/AKfycbwnKYjXVEj_X5Mq7SdYecZ1rHghn_zebmUJZkFh8ZdiUlBkz_OjlTejHaNl3WRCnXY73w/exec';
 const form = document.getElementById('internForm');
 const btn = document.getElementById('submitBtn');
 const msg = document.getElementById('responseMsg');
