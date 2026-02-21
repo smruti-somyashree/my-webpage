@@ -1,4 +1,4 @@
-const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+const scriptURL = 'https://smruti-somyashree.github.io/my-webpage/';
 const form = document.getElementById('internForm');
 const btn = document.getElementById('submitBtn');
 const msg = document.getElementById('responseMsg');
