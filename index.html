@@ -1,1 +1,80 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Application | bputnotes.in</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://via.placeholder.com/150x50?text=bputnotes.in" alt="Logo" class="logo">
+            <h1>Summer Internship 2026</h1>
+            <p>Apply now to gain hands-on experience in Machine Learning and Web Development.</p>
+        </header>
+
+        <form id="internForm">
+            <div class="form-section">
+                <h3>Personal Details</h3>
+                <div class="grid">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="tel" name="mobile" placeholder="Mobile Number" required>
+                    <input type="text" name="college" placeholder="College Name" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Academic & Tech Stack</h3>
+                <div class="grid">
+                    <select name="branch" required>
+                        <option value="" disabled selected>Select Branch</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Electronics & Communication">Electronics & Communication</option>
+                        <option value="Information Technology">Information Technology</option>
+                    </select>
+
+                    <select name="year" required>
+                        <option value="" disabled selected>Year</option>
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                        <option value="3">3rd Year</option>
+                        <option value="4">4th Year</option>
+                    </select>
+
+                    <select name="sem" required>
+                        <option value="" disabled selected>Semester</option>
+                        <option value="3">3rd Sem</option>
+                        <option value="4">4th Sem</option>
+                        <option value="5">5th Sem</option>
+                        <option value="6">6th Sem</option>
+                        <option value="7">7th Sem</option>
+                    </select>
+
+                    <input type="number" step="0.01" name="cgpa" placeholder="Current CGPA" required>
+                </div>
+
+                <div class="tech-stack">
+                    <p>Primary Tech Stack:</p>
+                    <label><input type="radio" name="tech_stack" value="Python"> Python</label>
+                    <label><input type="radio" name="tech_stack" value="Java"> Java</label>
+                    <label><input type="radio" name="tech_stack" value="Javascript"> JavaScript</label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Additional Info</h3>
+                <label for="photo">Upload Profile Photo (JPG only):</label>
+                <input type="file" id="photo" name="photo" accept=".jpg, .jpeg" required>
+                <textarea name="other_info" placeholder="Tell us about your previous projects or interests..."></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn">Submit Application</button>
+        </form>
+        <div id="responseMsg"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
