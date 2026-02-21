@@ -1,25 +1,40 @@
-const scriptURL = 'https://script.google.com/a/macros/gcekjr.ac.in/s/AKfycbwnKYjXVEj_X5Mq7SdYecZ1rHghn_zebmUJZkFh8ZdiUlBkz_OjlTejHaNl3WRCnXY73w/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxhIx64rIYH_LA4y6sZ6ZY1lSMXof3A-K07qoL4mJdVqWp9yOndN5Tf6lhtips_LWxs6w/exec';
 const form = document.getElementById('internForm');
 const btn = document.getElementById('submitBtn');
-const msg = document.getElementById('responseMsg');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
     btn.disabled = true;
-    btn.innerText = "Submitting...";
+    btn.innerText = "Uploading Application...";
 
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    const fileInput = document.getElementById('photo');
+    const file = fileInput.files[0];
+
+    // If there is a photo, convert it to a string first
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            const base64Data = reader.result.split(',')[1];
+            const formData = new FormData(form);
+            formData.set('photo', base64Data); // Swap file for text
+            sendData(formData);
+        };
+        reader.readAsDataURL(file);
+    } else {
+        sendData(new FormData(form));
+    }
+});
+
+function sendData(data) {
+    fetch(scriptURL, { method: 'POST', body: data })
         .then(response => {
-            msg.innerHTML = "Application Submitted Successfully!";
-            msg.style.color = "green";
+            alert("Application Submitted to bputnotes.in!");
             form.reset();
             btn.disabled = false;
             btn.innerText = "Submit Application";
         })
         .catch(error => {
-            msg.innerHTML = "Error! Please try again.";
-            msg.style.color = "red";
+            console.error('Error!', error.message);
             btn.disabled = false;
-            btn.innerText = "Submit Application";
         });
-});
+}
